@@ -9,7 +9,7 @@ Visitors do not need to sign in.
 
 | Path | Content |
 |---|---|
-| `/` | Company purpose, products, founder section, contact |
+| `/` | Company purpose, two product entries, studio and contact |
 | `/oyomap/` | Existing Oyomap homepage, migrated from the live site |
 | `/oyomap/privacy/` | Existing English privacy policy |
 | `/oyomap/privacy/zh-Hans/` | Existing Simplified Chinese privacy policy |
@@ -22,8 +22,52 @@ Visitors do not need to sign in.
 
 Future Basie support/privacy/terms pages belong under `/basie/`, after their
 content is established. Do not invent a privacy policy for an unfinished product.
-Founder names and biographies have not been supplied; the company homepage
-clearly marks that section as forthcoming. The illustration is a mascot, not a portrait.
+Founder names and biographies have not been supplied. Add real profiles within
+the studio section when available; do not publish a large placeholder biography
+or present a mascot as a founder portrait.
+
+## Page layout and design
+
+The homepage answers: **Who is this studio, and which app should I open?**
+Its reading order is a short introduction, the product directory, then studio/contact.
+Each product has one link covering its icon, name and short description. Avoid
+repeated “Meet…” buttons, oversized illustration panels, slogan captions, and
+multiple paragraphs making the same point (user feedback, 2026-11-15).
+
+The visual direction is a quiet, precise independent studio with an editorial
+quality: self-hosted Newsreader titles, readable system sans text, warm near-white
+paper, dark green ink, and the real full-colour app icons. The font's OFL licence
+is preserved in `docs/assets/fonts/OFL-Newsreader.txt`.
+
+Desktop uses a two-column introduction and two side-by-side product panels.
+At 700px and below, the panels become compact icon/text rows on the page canvas.
+Mobile is a distinct composition, not the desktop panels stacked at full height.
+Keep visible keyboard focus and reduced-motion support. Company-page translations
+are English and Simplified Chinese; migrated Oyomap pages retain their existing locales.
+
+```text
+Desktop                           Mobile
+Wordmark            Studio / 中   Wordmark       Studio / 中
+Short headline      Introduction  Short headline
+                                  Introduction
+Our apps                          Our apps
+Oyomap + icon       Basie + cat    Icon  Oyomap + sentence
+                                  Cat   Basie + sentence/status
+The studio          Note / email  The studio / note / email
+Copyright               Support   Copyright         Support
+```
+
+Basie is presented as an in-development cat life sim, using the product's confirmed
+positioning: real-life activities become the cat's activities in its own world.
+Its introduction does not imply public availability or completed features.
+
+Reference lenses: [Taste Skill](https://github.com/Leonxlnx/taste-skill),
+[Frontend Design](https://github.com/anthropics/skills/tree/main/skills/frontend-design),
+[Vercel Web Design Guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines),
+and the concentrated product hierarchy of [Mela](https://mela.recipes/) and
+[Things](https://culturedcode.com/things/). The user's compact mobile brief takes
+precedence over any generic skill's full-screen sections or decorative effects.
+The locally installed `yuzuyu-web-design` skill carries the tailored instructions.
 
 ## Product artwork
 
@@ -52,6 +96,10 @@ Review and push the source to `eason-yty/yuzuyu-studio` on GitHub.
 GitHub Pages publishes `main:/docs`; `docs/CNAME` sets `yuzuyustudio.com`
 as the canonical domain. `docs/.nojekyll` serves these static files directly.
 The site has no added analytics, signup forms, or customer-data backend.
+Shared studio CSS/JS and the cat icon use versioned URLs. Bump the relevant
+version when changing an asset. GitHub Pages may cache HTML for ten minutes;
+a version query on the page URL can open a fresh release without changing its
+canonical URL. An already-open browser page still needs a reload.
 
 ## Domain and mail
 
