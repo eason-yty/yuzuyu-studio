@@ -1,8 +1,9 @@
 # Yuzuyu Studio website
 
 The company owns `/`; each product owns its pages under its own path.
-Use `https://yuzuyustudio.com` in customer-facing URLs. The platform-generated
-workspace hostname is only a hosting implementation detail, not company branding.
+Use `https://yuzuyustudio.com` in customer-facing URLs.
+GitHub Pages publishes this public company website from `main:/docs`.
+Visitors do not need to sign in.
 
 ## Routes
 
@@ -37,13 +38,13 @@ Keep the English, Simplified Chinese, and Traditional Chinese policies aligned.
 ## Preview and publishing
 
 ```sh
-python3 -m http.server 4827 --bind 127.0.0.1 --directory dist
+python3 -m http.server 4827 --bind 127.0.0.1 --directory docs
 ```
 
-`.openai/hosting.json` records the Sites identity and static directory.
-Publish the exact reviewed source through the Sites source workflow. The site
-has no added analytics, signup forms, or customer-data backend. Hosting services
-may apply their own access controls and security cookies.
+Review and push the source to `eason-yty/yuzuyu-studio` on GitHub.
+GitHub Pages publishes `main:/docs`; `docs/CNAME` sets `yuzuyustudio.com`
+as the canonical domain. `docs/.nojekyll` serves these static files directly.
+The site has no added analytics, signup forms, or customer-data backend.
 
 ## Domain and mail
 
@@ -60,9 +61,11 @@ the actual outbound mail provider and SPF/DKIM alignment are established.
 DNSSEC was enabled and its registry DS/public authenticated answer verified on
 2026-11-15. Auto-renew and WHOIS redaction were already on. Expiration shown in
 Cloudflare: 2027-11-01; automatic renewal scheduled for 2027-10-02.
-The website uses two DNS-only apex A records and a DNS-only `www` CNAME supplied
-by Sites, plus domain-verification TXT records. Retain verification records while
-these domains are attached. Both hostnames have managed HTTPS certificates.
+The website uses four DNS-only apex A records for GitHub Pages:
+`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`.
+The DNS-only `www` CNAME points to `eason-yty.github.io`.
+GitHub Pages manages HTTPS and redirects `www` to the canonical apex domain.
+Cloudflare mail records are independent of these website records.
 
 ## Old-domain transition
 
