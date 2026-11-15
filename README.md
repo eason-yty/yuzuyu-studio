@@ -1,37 +1,75 @@
 # Yuzuyu Studio website
 
-Static English/Chinese company website, with a product overview at `/oyomap/`.
-The site source is independent of the YUZUYU iOS repository. Product privacy,
-support, and terms links continue to use the existing Oyomap website.
+The company owns `/`; each product owns its pages under its own path.
+Use `https://yuzuyustudio.com` in customer-facing URLs. The platform-generated
+workspace hostname is only a hosting implementation detail, not company branding.
 
-## Local preview
+## Routes
+
+| Path | Content |
+|---|---|
+| `/` | Company purpose, products, founder section, contact |
+| `/oyomap/` | Existing Oyomap homepage, migrated from the live site |
+| `/oyomap/privacy/` | Existing English privacy policy |
+| `/oyomap/privacy/zh-Hans/` | Existing Simplified Chinese privacy policy |
+| `/oyomap/privacy/zh-Hant/` | Existing Traditional Chinese privacy policy |
+| `/oyomap/support/` | Existing English support page |
+| `/oyomap/support/zh-Hans/` | Existing Simplified Chinese support page |
+| `/oyomap/support/zh-Hant/` | Existing Traditional Chinese support page |
+| `/oyomap/terms/` | Existing terms and Apple EULA link |
+| `/basie/` | Basie introduction, clearly marked in development |
+
+Future Basie support/privacy/terms pages belong under `/basie/`, after their
+content is established. Do not invent a privacy policy for an unfinished product.
+Founder names and biographies have not been supplied; the company homepage
+clearly marks that section as forthcoming. The illustration is a mascot, not a portrait.
+
+## Oyomap migration provenance
+
+Source: https://github.com/eason-yty/oyomap-site, read on 2026-11-15.
+All eight page bodies, the product 404, and the stylesheet were checked against
+https://www.oyomap.com and matched the live files. Main page text is preserved,
+except support/privacy email addresses now use the configured Yuzuyu Studio aliases.
+Canonical and language-alternate URLs now use the nested product path. Relative
+links and CSS stay within `/oyomap/`. A company breadcrumb links back to `/`.
+Keep the English, Simplified Chinese, and Traditional Chinese policies aligned.
+
+## Preview and publishing
 
 ```sh
 python3 -m http.server 4827 --bind 127.0.0.1 --directory dist
 ```
 
-## Publishing
+`.openai/hosting.json` records the Sites identity and static directory.
+Publish the exact reviewed source through the Sites source workflow. The site
+has no added analytics, signup forms, or customer-data backend. Hosting services
+may apply their own access controls and security cookies.
 
-The Sites project identity and static output directory are in `.openai/hosting.json`.
-Publish the exact reviewed source using the Sites source workflow. The production
-hostname is `yuzuyustudio.com`; `www.yuzuyustudio.com` should serve the same site.
-Do not change the existing Oyomap DNS or in-app URLs as part of a company-site update.
-
-## Domain and email
+## Domain and mail
 
 Cloudflare manages registration, authoritative DNS, and Email Routing.
-The explicit aliases are `hello`, `support`, `privacy`, and `admin`. Their destination
-is the existing verified Oyomap inbox. Catch-all remains disabled. Cloudflare creates
-and manages the three MX records, SPF, and forwarding DKIM. Preserve these records
-when changing web hosting. Email Routing is a receiving/forwarding configuration;
-it does not establish a user mailbox or an outbound reply identity.
+Aliases: `hello`, `support`, `privacy`, `admin`; all target the existing verified
+Oyomap inbox. Catch-all is disabled. Preserve the service-managed three MX
+records, SPF, and forwarding DKIM when changing web hosting. This is incoming
+mail forwarding; no outbound mailbox or company-domain reply identity is configured.
 
-DNSSEC activation was submitted on 2026-11-15. Verify registry DS publication before
-calling it fully active. Auto-renew and WHOIS redaction were already enabled.
+DMARC: `v=DMARC1; p=none; rua=mailto:admin@yuzuyustudio.com`.
+This monitors authentication; it does not enforce rejection. Tighten only after
+the actual outbound mail provider and SPF/DKIM alignment are established.
 
-## Migration boundary
+DNSSEC was enabled and its registry DS/public authenticated answer verified on
+2026-11-15. Auto-renew and WHOIS redaction were already on. Expiration shown in
+Cloudflare: 2027-11-01; automatic renewal scheduled for 2027-10-02.
+The website uses two DNS-only apex A records and a DNS-only `www` CNAME supplied
+by Sites, plus domain-verification TXT records. Retain verification records while
+these domains are attached. Both hostnames have managed HTTPS certificates.
 
-Oyomap remains a product under Yuzuyu Studio. Before retiring `oyomap.com`, migrate
-all privacy/support/terms pages and incoming mail, update App Store and in-app links,
-and test permanent redirects and incoming mail. Keep the old domain registered
-through the transition. This website alone does not perform that migration.
+## Old-domain transition
+
+This migration copies content to the new company site. It does not change old
+DNS, the old GitHub Pages repository, in-app links, or App Store Connect metadata.
+Before retiring `oyomap.com`, validate public access to all migrated pages,
+validate real email receipt, update app/store URLs, and configure/test permanent
+redirects that preserve page and language paths. Keep the old domain registered
+through the transition. Actual email delivery still requires a message from a
+separate sender and confirmation in the destination inbox.
