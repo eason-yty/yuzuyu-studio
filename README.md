@@ -25,6 +25,13 @@ content is established. Do not invent a privacy policy for an unfinished product
 Founder names and biographies have not been supplied; the company homepage
 clearly marks that section as forthcoming. The illustration is a mascot, not a portrait.
 
+## Product artwork
+
+Basie uses the approved hand-drawn black cat app icon at `docs/assets/basie.png`
+on both the company homepage and `/basie/`. This is an unchanged copy of the
+Basie app's `AppIcon.png`, matching the supplied reference. Keep this asset in
+the website repository so publication stays independent of the app repository.
+
 ## Oyomap migration provenance
 
 Source: https://github.com/eason-yty/oyomap-site, read on 2026-11-15.
