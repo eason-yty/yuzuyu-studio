@@ -10,7 +10,12 @@ Visitors do not need to sign in.
 | Path | Content |
 |---|---|
 | `/` | Company purpose, two product entries, studio and contact |
-| `/oyomap/` | Existing Oyomap homepage, migrated from the live site |
+| `/oyomap/` | Oyomap product introduction, App Store link, capabilities and latest journal entry |
+| `/oyomap/zh-Hans/` | Simplified Chinese product introduction |
+| `/oyomap/journal/` | Oyomap journal, initially containing the 1.0 release story |
+| `/oyomap/journal/zh-Hans/` | Simplified Chinese journal |
+| `/oyomap/journal/the-first-chapter/` | Oyomap 1.0 — the first chapter |
+| `/oyomap/journal/the-first-chapter/zh-Hans/` | Simplified Chinese 1.0 release story |
 | `/oyomap/privacy/` | Existing English privacy policy |
 | `/oyomap/privacy/zh-Hans/` | Existing Simplified Chinese privacy policy |
 | `/oyomap/privacy/zh-Hant/` | Existing Traditional Chinese privacy policy |
@@ -85,6 +90,43 @@ except support/privacy email addresses now use the configured Yuzuyu Studio alia
 Canonical and language-alternate URLs now use the nested product path. Relative
 links and CSS stay within `/oyomap/`. A company breadcrumb links back to `/`.
 Keep the English, Simplified Chinese, and Traditional Chinese policies aligned.
+
+The product homepage now uses the approved light cream/orange composition instead
+of the migrated legal directory. Legal and support page bodies and their existing
+stylesheet remain unchanged. The product pages have a separate `product.css` so
+their visual changes do not change policy rendering.
+
+## Oyomap product page and journal
+
+The product page answers: **What can I make with Oyomap, and where can I get it?**
+The order is introduction/download → product artwork and capability choices →
+latest journal entry → X account → support/privacy/terms. Desktop pairs the
+introduction with the artwork; mobile stacks them with compact capability controls.
+Keep the adjoining map screenshots together at their natural aspect ratio. Cropping
+one tall App Store image into a mobile landscape frame hides the actual map.
+
+The four 1320×2868 WebP images in `docs/oyomap/assets/` are copies of public
+Oyomap App Store screenshots 1, 2, 3 and 8 from app ID `6799545137`. The user approved
+using these public images for now, including their existing artwork/watermarks.
+They are hosted with this independent website, not requested from Apple at runtime.
+Replace them with approved clean exports when supplied; do not invent app screens.
+
+English is the default. Product, journal and article pages have explicit
+`zh-Hans/` counterparts with reciprocal language links, canonical URLs and
+`hreflang`. Content and links work without JavaScript; JavaScript only switches
+the homepage's product artwork. Chinese footer links open the existing Simplified
+Chinese Support and Privacy pages. Terms stays at `/oyomap/terms/` and is explicitly
+labelled English in the Chinese footer. No new legal translation is introduced.
+
+The first journal entry is the public 1.0 release, dated October 31, 2026.
+The website/brand-adjustment draft from the mockup is not published. Add future
+articles at `/oyomap/journal/<slug>/`, link them from the journal and update the
+homepage's latest entry. Add a Chinese counterpart when a translation is ready;
+do not present an untranslated article as Chinese or require every dev note to
+be translated. Add category filters only when there is enough content to need them.
+
+The social destination is `https://x.com/fries_yty`. There are no social embeds,
+new analytics, account forms or changes to the iOS app's telemetry contract.
 
 ## Preview and publishing
 
