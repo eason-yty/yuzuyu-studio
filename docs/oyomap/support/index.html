@@ -17,7 +17,8 @@
   <meta property="og:image" content="https://yuzuyustudio.com/assets/oyomap.png">
   <link rel="icon" href="/assets/oyomap.png" type="image/png">
   <link rel="preload" href="/assets/fonts/newsreader-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="/oyomap/assets/product.css?v=20261115-unified">
+  <link rel="stylesheet" href="/oyomap/assets/product.css?v=20261115-contact">
+  <script src="/oyomap/assets/contact.js?v=20261115-contact" defer></script>
 </head>
 <body class="oyomap">
   <a class="skip" href="#main">Skip to content</a>
@@ -42,7 +43,22 @@
       <p class="ow-kicker">Oyomap</p>
       <h1>How can we help?</h1>
       <p class="ow-document-lede">Start with the quick answers below. If something still is not working, send us a concise description and we will help as soon as practical.</p>
-      <p><a class="ow-download" href="mailto:support@yuzuyustudio.com?subject=Oyomap%20Support">Email support</a></p>
+      <details class="ow-contact">
+        <summary class="ow-download">Email support<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="ow-contact-panel">
+          <p class="ow-contact-label">Send to</p>
+          <div class="ow-contact-address">
+            <span id="support-address" class="ow-email-address">support@yuzuyustudio.com</span>
+            <button class="ow-copy-email" type="button" data-copy-email aria-describedby="support-address" data-copied="Email address copied." data-copy-failed="Could not copy automatically. Select the email address above to copy it." hidden>Copy</button>
+          </div>
+          <div class="ow-contact-options">
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=support%40yuzuyustudio.com&amp;su=Oyomap%20Support" target="_blank" rel="noopener noreferrer">Write in Gmail</a>
+            <a href="mailto:support@yuzuyustudio.com?subject=Oyomap%20Support">Open email app</a>
+          </div>
+          <p class="ow-contact-hint">Or copy the address into any email service you use.</p>
+          <p class="ow-copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </details>
     </header>
 <div class="ow-document-body"><h2>Quick answers</h2>
       <details>

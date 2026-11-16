@@ -104,6 +104,14 @@ mobile places those links in one row above the title. Privacy service disclosure
 stack with labels on mobile. Policy text and effective dates are not changed for
 visual updates.
 
+The Support email button opens an inline contact panel using native HTML `details`.
+It always reveals the public address, a Gmail compose link, and an explicitly
+labelled email-app link. Do not rely on `mailto:` as the only contact action: some
+visitors have no default mail handler. `contact.js` adds a copy button when the
+Clipboard API is available; it confirms only a successful copy and provides manual
+copy guidance if blocked. Opening the panel and selecting a mail provider never
+sends a message. Keep both English and Chinese flows aligned.
+
 ```text
 Desktop                            Mobile
 Oyomap   The app / Journal / EN 中文  Oyomap  Journal / English 中文
@@ -135,8 +143,8 @@ language. Navigation stays in that language; there is no browser-language detect
 or stored locale override. Chinese footer links open Chinese Support, Privacy and
 Terms. The old `zh-Hant/` support/privacy URLs redirect to `zh-Hans/` with a native
 HTML refresh and a fallback link, so existing bookmarks keep working without a
-third language choice or JavaScript. Content and links work without JavaScript;
-JavaScript only switches the homepage's product artwork.
+third language choice or JavaScript. Content, links and the contact panel work
+without JavaScript; JavaScript switches product artwork and enhances email copying.
 
 The first journal entry is the public 1.0 release, dated October 31, 2026.
 The website/brand-adjustment draft from the mockup is not published. Add future

@@ -17,7 +17,8 @@
   <meta property="og:image" content="https://yuzuyustudio.com/assets/oyomap.png">
   <link rel="icon" href="/assets/oyomap.png" type="image/png">
   <link rel="preload" href="/assets/fonts/newsreader-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="/oyomap/assets/product.css?v=20261115-unified">
+  <link rel="stylesheet" href="/oyomap/assets/product.css?v=20261115-contact">
+  <script src="/oyomap/assets/contact.js?v=20261115-contact" defer></script>
 </head>
 <body class="oyomap is-zh">
   <a class="skip" href="#main">跳转到内容</a>
@@ -42,7 +43,22 @@
       <p class="ow-kicker">Oyomap</p>
       <h1>需要帮助吗？</h1>
       <p class="ow-document-lede">先看看下面的常见问题。如果问题仍未解决，请发邮件简要说明情况，我们会尽快提供帮助。</p>
-      <p><a class="ow-download" href="mailto:support@yuzuyustudio.com?subject=Oyomap%20Support">邮件联系支持团队</a></p>
+      <details class="ow-contact">
+        <summary class="ow-download">邮件联系支持团队<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="ow-contact-panel">
+          <p class="ow-contact-label">收件邮箱</p>
+          <div class="ow-contact-address">
+            <span id="support-address" class="ow-email-address">support@yuzuyustudio.com</span>
+            <button class="ow-copy-email" type="button" data-copy-email aria-describedby="support-address" data-copied="邮箱已复制。" data-copy-failed="未能自动复制，请选中上方邮箱地址手动复制。" hidden>复制</button>
+          </div>
+          <div class="ow-contact-options">
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=support%40yuzuyustudio.com&amp;su=Oyomap%20Support" target="_blank" rel="noopener noreferrer">用 Gmail 写信</a>
+            <a href="mailto:support@yuzuyustudio.com?subject=Oyomap%20Support">打开邮件应用</a>
+          </div>
+          <p class="ow-contact-hint">也可以将邮箱地址复制到您常用的邮件服务中。</p>
+          <p class="ow-copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </details>
     </header>
 <div class="ow-document-body"><h2>常见问题</h2>
       <details>

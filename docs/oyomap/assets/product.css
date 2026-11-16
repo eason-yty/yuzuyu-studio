@@ -96,6 +96,19 @@ button:disabled { cursor: default; }
 .oyomap .ow-document h1 { font-size:48px; }
 .oyomap .ow-document-lede { max-width:620px; margin-top:20px; color:var(--ow-muted); font-size:17px; line-height:1.7; }
 .oyomap .ow-document-meta { margin-top:16px; color:var(--ow-muted); font-size:13px; line-height:1.6; }
+.oyomap .ow-contact { max-width:480px; }
+.oyomap .ow-contact > summary { cursor:pointer; list-style:none; }
+.oyomap .ow-contact > summary::-webkit-details-marker { display:none; }
+.oyomap .ow-contact > summary:focus-visible { outline:2px solid var(--ow-link); outline-offset:5px; }
+.oyomap .ow-contact[open] > summary svg { transform:rotate(180deg); }
+.oyomap .ow-contact-panel { margin-top:16px; padding:18px; border:1px solid var(--ow-line); border-radius:12px; }
+.oyomap .ow-contact-label, .oyomap .ow-contact-hint, .oyomap .ow-copy-status { font-size:13px; line-height:1.6; color:var(--ow-muted); }
+.oyomap .ow-contact-address { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0 12px; margin-top:4px; }
+.oyomap .ow-email-address { font-size:15px; line-height:1.7; user-select:all; -webkit-user-select:all; overflow-wrap:anywhere; }
+.oyomap .ow-copy-email { display:inline-flex; align-items:center; min-height:44px; padding:8px 0; background:none; border:0; color:var(--ow-link); text-decoration:underline; text-underline-offset:4px; font-size:13px; }
+.oyomap .ow-contact-options { display:flex; align-items:center; flex-wrap:wrap; gap:0 20px; margin-block:8px; }
+.oyomap .ow-contact-options a { display:inline-flex; align-items:center; min-height:44px; font-size:14px; color:var(--ow-link); text-decoration:underline; text-underline-offset:4px; }
+.oyomap .ow-copy-status:not(:empty) { margin-top:10px; color:var(--ow-link); }
 .oyomap .ow-document-body { border-top:1px solid var(--ow-line); padding-top:28px; overflow-wrap:anywhere; }
 .oyomap .ow-document-body h2 { margin:36px 0 14px; font:550 21px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; letter-spacing:-.3px; text-wrap:pretty; }
 .oyomap .ow-document-body > h2:first-child { margin-top:0; }
