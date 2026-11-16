@@ -16,13 +16,14 @@ Visitors do not need to sign in.
 | `/oyomap/journal/zh-Hans/` | Simplified Chinese journal |
 | `/oyomap/journal/the-first-chapter/` | Oyomap 1.0 — the first chapter |
 | `/oyomap/journal/the-first-chapter/zh-Hans/` | Simplified Chinese 1.0 release story |
-| `/oyomap/privacy/` | Existing English privacy policy |
-| `/oyomap/privacy/zh-Hans/` | Existing Simplified Chinese privacy policy |
-| `/oyomap/privacy/zh-Hant/` | Existing Traditional Chinese privacy policy |
-| `/oyomap/support/` | Existing English support page |
-| `/oyomap/support/zh-Hans/` | Existing Simplified Chinese support page |
-| `/oyomap/support/zh-Hant/` | Existing Traditional Chinese support page |
-| `/oyomap/terms/` | Existing terms and Apple EULA link |
+| `/oyomap/privacy/` | English privacy policy |
+| `/oyomap/privacy/zh-Hans/` | Chinese privacy policy |
+| `/oyomap/privacy/zh-Hant/` | Compatibility redirect to the Chinese privacy policy |
+| `/oyomap/support/` | English support page |
+| `/oyomap/support/zh-Hans/` | Chinese support page |
+| `/oyomap/support/zh-Hant/` | Compatibility redirect to the Chinese support page |
+| `/oyomap/terms/` | English terms and Apple EULA link |
+| `/oyomap/terms/zh-Hans/` | Chinese translation of the same terms |
 | `/basie/` | Basie introduction, clearly marked in development |
 
 Future Basie support/privacy/terms pages belong under `/basie/`, after their
@@ -47,8 +48,8 @@ is preserved in `docs/assets/fonts/OFL-Newsreader.txt`.
 Desktop uses a two-column introduction and two side-by-side product panels.
 At 700px and below, the panels become compact icon/text rows on the page canvas.
 Mobile is a distinct composition, not the desktop panels stacked at full height.
-Keep visible keyboard focus and reduced-motion support. Company-page translations
-are English and Simplified Chinese; migrated Oyomap pages retain their existing locales.
+Keep visible keyboard focus and reduced-motion support. Company and Oyomap pages
+offer English and Chinese (Simplified Chinese text).
 
 ```text
 Desktop                           Mobile
@@ -84,17 +85,33 @@ the website repository so publication stays independent of the app repository.
 ## Oyomap migration provenance
 
 Source: https://github.com/eason-yty/oyomap-site, read on 2026-11-15.
-All eight page bodies, the product 404, and the stylesheet were checked against
-https://www.oyomap.com and matched the live files. Main page text is preserved,
-except support/privacy email addresses now use the configured Yuzuyu Studio aliases.
-Canonical and language-alternate URLs now use the nested product path. Relative
-links and CSS stay within `/oyomap/`. A company breadcrumb links back to `/`.
-Keep the English, Simplified Chinese, and Traditional Chinese policies aligned.
+At the initial migration, all eight page bodies, the product 404, and the stylesheet
+were checked against https://www.oyomap.com and matched the live files. Contact
+addresses now use the configured Yuzuyu Studio aliases. Canonical and language-
+alternate URLs use the nested product path; the footer links back to the studio.
+The existing English and Simplified Chinese privacy disclosures and support answers,
+and the English terms, remain intact. The Chinese terms translate the same eleven
+sections, retaining the original effective date and Apple EULA destination.
 
-The product homepage now uses the approved light cream/orange composition instead
-of the migrated legal directory. Legal and support page bodies and their existing
-stylesheet remain unchanged. The product pages have a separate `product.css` so
-their visual changes do not change policy rendering.
+All Oyomap pages now use the same `product.css`: light cream paper, brown ink,
+orange accents, real app icon, Newsreader titles, and shared navigation/footer.
+Do not leave a linked support or legal page on a separate theme (user feedback,
+2026-11-15). The old automatic dark theme and stylesheet have been removed.
+
+Support puts quick answers before email preparation. Privacy and terms use an
+unboxed reading column; desktop has a small Support/Privacy/Terms sidebar, and
+mobile places those links in one row above the title. Privacy service disclosures
+stack with labels on mobile. Policy text and effective dates are not changed for
+visual updates.
+
+```text
+Desktop                            Mobile
+Oyomap   The app / Journal / EN 中文  Oyomap  Journal / English 中文
+Support | Page title               Support / Privacy / Terms
+Privacy | Introduction / date      Page title / introduction / date
+Terms   | FAQ or readable policy   FAQ or readable policy
+Studio              Legal links    Studio / legal links
+```
 
 ## Oyomap product page and journal
 
@@ -111,12 +128,15 @@ using these public images for now, including their existing artwork/watermarks.
 They are hosted with this independent website, not requested from Apple at runtime.
 Replace them with approved clean exports when supplied; do not invent app screens.
 
-English is the default. Product, journal and article pages have explicit
-`zh-Hans/` counterparts with reciprocal language links, canonical URLs and
-`hreflang`. Content and links work without JavaScript; JavaScript only switches
-the homepage's product artwork. Chinese footer links open the existing Simplified
-Chinese Support and Privacy pages. Terms stays at `/oyomap/terms/` and is explicitly
-labelled English in the Chinese footer. No new legal translation is introduced.
+English is the default. Product, journal, article, support, privacy and terms pages
+have explicit `zh-Hans/` counterparts with canonical URLs and reciprocal `hreflang`.
+Every Oyomap header shows **English / 中文** side by side and identifies the active
+language. Navigation stays in that language; there is no browser-language detection
+or stored locale override. Chinese footer links open Chinese Support, Privacy and
+Terms. The old `zh-Hant/` support/privacy URLs redirect to `zh-Hans/` with a native
+HTML refresh and a fallback link, so existing bookmarks keep working without a
+third language choice or JavaScript. Content and links work without JavaScript;
+JavaScript only switches the homepage's product artwork.
 
 The first journal entry is the public 1.0 release, dated October 31, 2026.
 The website/brand-adjustment draft from the mockup is not published. Add future

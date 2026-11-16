@@ -28,9 +28,11 @@ button:disabled { cursor: default; }
 .oyomap .ow-brand { display:flex; align-items:center; gap:9px; font-size:21px; font-weight:650; letter-spacing:-.6px; min-height:44px; }
 .oyomap .ow-brand img { width:34px; height:34px; border-radius:9px; }
 .oyomap .ow-nav-links { display:flex; align-items:center; gap:22px; font-size:14px; }
-.oyomap .ow-nav-links a, .oyomap .ow-language { display:inline-flex; align-items:center; min-height:44px; }
+.oyomap .ow-nav-links a { display:inline-flex; align-items:center; min-height:44px; }
 .oyomap .ow-nav-links a[aria-current="page"] { text-decoration:underline; text-underline-offset:7px; }
-.oyomap .ow-language { background:none; border:0; padding:8px 4px; color:var(--ow-muted); min-width:44px; justify-content:center; }
+.oyomap .ow-languages { display:inline-flex; align-items:center; gap:4px; white-space:nowrap; color:var(--ow-muted); }
+.oyomap .ow-languages a { min-width:44px; padding-inline:4px; justify-content:center; }
+.oyomap .ow-languages a[aria-current="page"] { color:var(--ow-ink); }
 .oyomap .ow-hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:40px; align-items:center; padding-block:24px 40px; }
 .oyomap h1, .oyomap h2, .oyomap h3, .oyomap p { margin:0; }
 .oyomap .ow-kicker { font-size:12px; font-weight:600; letter-spacing:.05em; color:var(--ow-link); margin-bottom:18px; }
@@ -83,6 +85,45 @@ button:disabled { cursor: default; }
 .oyomap .ow-prose ul { padding-left:22px; }
 .oyomap.is-zh h1 { font-family:"Songti SC","Noto Serif CJK SC",serif; line-height:1.25; letter-spacing:-1px; }
 .oyomap.is-zh .ow-intro { line-height:1.8; }
+
+/* Help and policy pages share the product canvas and reading typography. */
+.oyomap .ow-help-layout { display:grid; grid-template-columns:160px minmax(0,720px); gap:48px; padding-block:32px 64px; }
+.oyomap .ow-help-nav { display:flex; flex-direction:column; align-items:start; align-self:start; gap:4px; font-size:14px; }
+.oyomap .ow-help-nav a { display:inline-flex; align-items:center; min-height:44px; color:var(--ow-muted); }
+.oyomap .ow-help-nav a[aria-current="page"], .oyomap .ow-footer a[aria-current="page"] { color:var(--ow-link); text-decoration:underline; text-underline-offset:7px; }
+.oyomap .ow-document { min-width:0; }
+.oyomap .ow-document-head { padding-bottom:32px; }
+.oyomap .ow-document h1 { font-size:48px; }
+.oyomap .ow-document-lede { max-width:620px; margin-top:20px; color:var(--ow-muted); font-size:17px; line-height:1.7; }
+.oyomap .ow-document-meta { margin-top:16px; color:var(--ow-muted); font-size:13px; line-height:1.6; }
+.oyomap .ow-document-body { border-top:1px solid var(--ow-line); padding-top:28px; overflow-wrap:anywhere; }
+.oyomap .ow-document-body h2 { margin:36px 0 14px; font:550 21px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; letter-spacing:-.3px; text-wrap:pretty; }
+.oyomap .ow-document-body > h2:first-child { margin-top:0; }
+.oyomap .ow-document-body p, .oyomap .ow-document-body li { font-size:16px; line-height:1.85; }
+.oyomap .ow-document-body p + p { margin-top:16px; }
+.oyomap .ow-document-body ul { margin:16px 0; padding-left:22px; }
+.oyomap .ow-document-body li + li { margin-top:10px; }
+.oyomap .ow-document-body a { color:var(--ow-link); text-decoration:underline; text-underline-offset:3px; }
+.oyomap .ow-callout { padding:18px 22px; margin-block:20px; border-left:2px solid var(--ow-orange); background:var(--ow-pale); }
+.oyomap .ow-document-body > .ow-callout:first-child { margin-top:0; }
+.oyomap .ow-document-body details { border-bottom:1px solid var(--ow-line); }
+.oyomap .ow-document-body summary { display:flex; justify-content:space-between; align-items:center; gap:16px; padding-block:18px; min-height:56px; cursor:pointer; list-style:none; font-size:16px; font-weight:550; line-height:1.5; }
+.oyomap .ow-document-body summary::-webkit-details-marker { display:none; }
+.oyomap .ow-document-body .ow-disclosure { color:var(--ow-link); font-size:22px; font-weight:400; flex-shrink:0; }
+.oyomap .ow-document-body .ow-disclosure::before { content:"+"; }
+.oyomap .ow-document-body details[open] .ow-disclosure::before { content:"−"; }
+.oyomap .ow-document-body summary:focus-visible { outline:2px solid var(--ow-link); outline-offset:3px; }
+.oyomap .ow-document-body details p { padding-bottom:20px; color:var(--ow-muted); }
+.oyomap .ow-data-table { width:100%; border-collapse:collapse; margin:22px 0; font-size:15px; line-height:1.75; }
+.oyomap .ow-data-table th, .oyomap .ow-data-table td { text-align:left; vertical-align:top; border-bottom:1px solid var(--ow-line); padding:16px 14px; }
+.oyomap .ow-data-table th { font-size:12px; font-weight:600; color:var(--ow-muted); }
+.oyomap .ow-data-table th:first-child, .oyomap .ow-data-table td:first-child { padding-left:0; width:22%; }
+.oyomap .ow-data-table th:last-child, .oyomap .ow-data-table td:last-child { padding-right:0; }
+@container (max-width:900px) {
+  .oyomap .ow-help-layout { grid-template-columns:1fr; gap:28px; padding-top:10px; }
+  .oyomap .ow-help-nav { flex-direction:row; gap:28px; border-bottom:1px solid var(--ow-line); padding-bottom:8px; }
+  .oyomap .ow-document { max-width:720px; width:100%; margin-inline:auto; }
+}
 @container (min-width:621px) and (max-width:900px) {
   .oyomap .ow-hero { gap:28px; }
   .oyomap .ow-hero h1 { font-size:42px; letter-spacing:-1.2px; }
@@ -95,6 +136,7 @@ button:disabled { cursor: default; }
   .oyomap .ow-brand { font-size:19px; }
   .oyomap .ow-brand img { width:30px; height:30px; }
   .oyomap .ow-nav-links { gap:12px; font-size:13px; }
+  .oyomap .ow-languages { gap:0; }
   .oyomap .ow-nav-home { display:none !important; }
   .oyomap .ow-hero { grid-template-columns:1fr; gap:24px; padding-block:18px 24px; }
   .oyomap h1 { font-size:42px; letter-spacing:-1.3px; }
@@ -131,6 +173,20 @@ button:disabled { cursor: default; }
   .oyomap .ow-article .ow-lede { font-size:18px; }
   .oyomap .ow-prose h2 { font-size:25px; }
   .oyomap .ow-prose p, .oyomap .ow-prose li { font-size:16px; line-height:1.8; }
+  .oyomap .ow-help-layout { padding-block:0 40px; gap:24px; }
+  .oyomap .ow-help-nav { font-size:13px; gap:24px; padding-bottom:6px; }
+  .oyomap .ow-document h1 { font-size:38px; }
+  .oyomap .ow-document-head { padding-bottom:28px; }
+  .oyomap .ow-document-lede { font-size:16px; margin-top:16px; }
+  .oyomap .ow-document-body { padding-top:24px; }
+  .oyomap .ow-document-body h2 { font-size:20px; margin-top:30px; }
+  .oyomap .ow-callout { padding:16px; }
+  .oyomap .ow-data-table, .oyomap .ow-data-table tbody, .oyomap .ow-data-table tr, .oyomap .ow-data-table td { display:block; }
+  .oyomap .ow-data-table thead { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip-path:inset(50%); }
+  .oyomap .ow-data-table tr { border-bottom:1px solid var(--ow-line); padding:16px 0; }
+  .oyomap .ow-data-table td, .oyomap .ow-data-table td:first-child, .oyomap .ow-data-table td:last-child { border:0; padding:6px 0; width:auto; }
+  .oyomap .ow-data-table td:first-child { font-size:17px; font-weight:600; }
+  .oyomap .ow-data-table td:not(:first-child)::before { content:attr(data-label); display:block; color:var(--ow-muted); font-size:12px; margin-bottom:2px; }
 }
 @container (max-width:350px) {
   .oyomap.is-zh .ow-capability strong { font-size:12px; }
